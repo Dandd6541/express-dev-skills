@@ -1,24 +1,23 @@
-// var express = require('express');
-// var router = express.Router();
 
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
-
-// module.exports = router;
 
 var express = require('express');
 var router = express.Router();
-// Require our todos controller module
+// Require our  controller module
 const skillsCtrl = require('../controllers/skills');
 
-// All routes will start with '/todos'
+// All routes will start with '/skills'
 
-// GET /todos (index functionality - list all)
+// GET /skills (index functionality - list all)
 router.get('/', skillsCtrl.index);
-// GET /todos/:id (show functionality - show one todo)
+
+router.get('/new', skillsCtrl.new);
+
+// GET /skills/:id (show functionality - show one skill)
 router.get('/:id', skillsCtrl.show);
-
-
+router.get('/:somethingcrazy/edit', skillsCtrl.edit);
+router.post('/', skillsCtrl.create);
+router.delete('/:id', skillsCtrl.delete);
+router.put('/:id', skillsCtrl.update);
 module.exports = router;
+
+
